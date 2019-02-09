@@ -31,8 +31,7 @@ def compute_melgram(audio_path):
         src = src[(n_sample-n_sample_fit)/2:(n_sample+n_sample_fit)/2]
     logam = librosa.amplitude_to_db
     melgram = librosa.feature.melspectrogram
-    ret = logam(melgram(y=src, sr=SR, hop_length=HOP_LEN,
-                        n_fft=N_FFT, n_mels=N_MELS)**2,
-                ref_power=1.0)
+    ret = logam(melgram(y=src, sr=SR, S=None, n_fft=N_FFT,hop_length=HOP_LEN,
+                         power=1.0,n_mels=N_MELS)**2)
     ret = ret[np.newaxis, np.newaxis, :]
     return ret
