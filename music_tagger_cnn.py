@@ -133,6 +133,6 @@ def MusicTaggerCNN(weights='msd', input_tensor=None,
         if K.image_dim_ordering() == 'tf':
             raise RuntimeError("Please set image_dim_ordering == 'th'."
                                "You can set it at ~/.keras/keras.json")
-        model.load_weights('/music_tagger_mine2/data/music_tagger_cnn_weights_%s.h5' % K._BACKEND,
+        model.load_weights('/content/music_tagger_mine2/data/music_tagger_cnn_weights_%s.h5' % K._BACKEND,
                            by_name=True)
         return model
