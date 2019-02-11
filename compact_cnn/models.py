@@ -99,7 +99,7 @@ def get_convBNeluMPdrop(num_conv_layers, nums_feat_maps,
                                     border_mode='same',
                                     init='he_normal'))
         # add BN, Activation, pooling
-        model.add(BatchNormalization(axis=1, mode=2))
+        model.add(BatchNormalization(axis=1, mode=0))
         model.add(keras.layers.advanced_activations.ELU(alpha=1.0))  # TODO: select activation
 
         model.add(MaxPooling2D(pool_size=pool_sizes[conv_idx]))
